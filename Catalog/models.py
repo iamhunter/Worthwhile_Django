@@ -15,4 +15,9 @@ class Course(models.Model):
     Description = models.TextField(max_length = 500)
     Instructor = models.CharField(max_length = 100)
     Duration = models.CharField(max_length = 2, choices = DURATION_CHOICES, default = '8')
-    CourseArt = models.FileField(upload_to='uploads/')
+    #CourseArt = models.FileField(upload_to='uploads/')
+    
+class Course_index(ModelForm):
+    class Meta:
+        model = Course
+        fields = ['Title', 'Description', 'Instructor', 'Duration']
