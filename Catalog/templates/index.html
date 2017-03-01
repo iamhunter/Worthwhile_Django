@@ -13,20 +13,6 @@
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 <script>
 $(document).ready(function(){
-    $("#liberalText").hide();
-    $("#conservativeText").hide();
-    $('a[href="#justfacts"]').click(function(){
-        $("#conservativeText").hide();
-        $("#liberalText").hide();   
-    });
-    $('a[href="#conservative"]').click(function(){
-        $("#conservativeText").show();
-        $("#liberalText").hide();
-    });
-    $('a[href="#liberal"]').click(function(){
-        $("#liberalText").show();
-        $("#conservativeText").hide();
-    });
     $('.button-collapse').sideNav();
 });
 </script>
