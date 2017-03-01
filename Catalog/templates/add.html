@@ -22,12 +22,12 @@ $(document).ready(function(){
       <a id="logo-container" href="{% url 'index' %}" class="brand-logo">Programming Django</a>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#!">Course Catalog</a></li>
-        <li><a href="#!">Add Course</a></li>
+        <li><a href="{% url 'index' %}">Course Catalog</a></li>
+        <li><a href="{% url 'add' %}">Add Course</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
-          <li><a href="#!">Course Catalog</a></li>
-          <li><a href="#!">Add Course</a></li>
+          <li><a href="{% url 'index' %}">Course Catalog</a></li>
+          <li><a href="{% url 'add' %}">Add Course</a></li>
           </ul>
       </ul>
     </div>
