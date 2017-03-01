@@ -1,12 +1,78 @@
-{% if latest_course_list %}
-    <table>
-    {% for Course in latest_course_list %}
-        <tr>
-            <td>{{ Course.pk }}</td>
-            <td>{{ Course.Title }}</td>
-            <td>{{ Course.Instructor }}</td>
-            <td>{{ Course.Duration }}</td>
-        </tr>
-    {% endfor %}
-    </table>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Post Template</title>
+
+  <!-- CSS  -->
+  {% load static %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+<script>
+$(document).ready(function(){
+    $("#liberalText").hide();
+    $("#conservativeText").hide();
+    $('a[href="#justfacts"]').click(function(){
+        $("#conservativeText").hide();
+        $("#liberalText").hide();   
+    });
+    $('a[href="#conservative"]').click(function(){
+        $("#conservativeText").show();
+        $("#liberalText").hide();
+    });
+    $('a[href="#liberal"]').click(function(){
+        $("#liberalText").show();
+        $("#conservativeText").hide();
+    });
+    $('.button-collapse').sideNav();
+});
+</script>
+<body>
+  <nav class="grey lighten-1 menu-bar" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="{% url 'index' %}" class="brand-logo">Programming Django</a>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#!">Course Catalog</a></li>
+        <li><a href="#!">Add Course</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+          <li><a href="#!">Course Catalog</a></li>
+          <li><a href="#!">Add Course</a></li>
+          </ul>
+      </ul>
+    </div>
+  </nav>
+  <div class="post-max-width">
+        <div class="section container">
+            <h2>Django Course Catalog</h2>
+            <h5>Please select from our awesome courses!</h5>
+            {% if latest_course_list %}
+                <table class="highlight">
+                    <thead>
+                        <tr>
+                            <th data-field="number">#</th>
+                            <th data-field="title">Course Title</th>
+                            <th data-field="instructor">Instructor</th>
+                            <th data-field="duration">Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for Course in latest_course_list %}
+                        <tr>
+                            <td>{{ Course.pk }}</td>
+                            <td>{{ Course.Title }}</td>
+                            <td>{{ Course.Instructor }}</td>
+                            <td>{{ Course.Duration }}</td>
+                        </tr>
+                    </tbody>
+                {% endfor %}
+                </table>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

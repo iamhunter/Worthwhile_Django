@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, render_to_response, redirect
+from django.shortcuts import render, HttpResponse, render_to_response, redirect, get_object_or_404
 
 from django.apps import apps
 
@@ -23,6 +23,10 @@ def add(request):
     else:
         form = Course_index()
     return render(request, 'add.html', {'form': form})
+    
+def detail(request, course_id):
+    course = get_object_or_404(Course, pk=course_id)
+    return render(request, 'detail.html', {'course': course})
 
 def change(request, question_id):
     return HttpResponse("You're changing question %s." % question_id)
