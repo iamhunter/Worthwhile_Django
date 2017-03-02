@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Post Template</title>
+  <title>Add Course</title>
 
   <!-- CSS  -->
   {% load static %}
@@ -34,7 +34,7 @@ $(document).ready(function(){
   </nav>
         <div class="container">
         {% block content %}
-            <h1>New post</h1>
+            <h1>Add Course</h1>
             <form method="POST" enctype="multipart/form-data" class="post-form">{% csrf_token %}
                 {{ form.as_p }}
                     <p align="right"><button type="submit" class="save btn btn-default">Submit</button> or <a href="{% url 'index' %}"> cancel </a></p>
