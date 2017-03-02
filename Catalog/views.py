@@ -13,11 +13,10 @@ def index(request):
     return render(request, 'index.html', context)
 
 def add(request):
-    if request.method == "POST":
-        form = Course_index(request.POST)
+    if request.method == 'POST':
+        form = Course_index(request.POST, request.FILES)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
+            form.save()
             return redirect('index')
     
     else:
@@ -31,11 +30,10 @@ def detail(request, course_id):
 def change(request, course_id):
     my_record = Course.objects.get(id=course_id)
 
-    if request.method =="POST":
-        form = Course_index(request.POST, instance=my_record)
+    if request.method =='POST':
+        form = Course_index(request.POST, request.FILES, instance=my_record)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
+            form.save()
             return redirect('index')
             
     else:
