@@ -37,7 +37,10 @@ $(document).ready(function(){
           <div class="col s8">
               <h2>{{ course.Title }} </h2>
               <h5>{{ course.Description }}</h5>
-              <img class="responsive-img" src="{{ course.CourseArt.url }}"></img>
+              <br> <br>
+              <div class="col s6">
+                  <img class="responsive-img" src="{{ course.CourseArt.url }}"></img>
+              </div>
           </div>
           <div class="col s4">
               <br><br>
