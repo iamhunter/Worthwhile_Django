@@ -40,7 +40,7 @@ $(document).ready(function(){
           </div>
           <div class="col s4">
               <br><br>
-              <a class="waves-effect waves-light btn">Change</a>
+              <a href="{% url 'change' course.pk %}" class="waves-effect waves-light btn">Change</a>
               <br><br>
               <ul>
                   <li> Instructor: {{ course.Instructor }} </li>

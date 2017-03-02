@@ -50,7 +50,7 @@ $(document).ready(function(){
                     {% for Course in latest_course_list %}
                         <tr>
                             <td>{{ Course.pk }}</td>
-                            <td>{{ Course.Title }}</td>
+                            <td><a href="{% url 'detail' Course.pk %}">{{ Course.Title }}</a></td>
                             <td>{{ Course.Instructor }}</td>
                             <td>{{ Course.Duration }}</td>
                         </tr>

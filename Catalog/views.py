@@ -22,11 +22,22 @@ def add(request):
     
     else:
         form = Course_index()
-    return render(request, 'add.html', {'form': form})
+        return render(request, 'add.html', {'form': form})
     
 def detail(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     return render(request, 'detail.html', {'course': course})
 
-def change(request, question_id):
-    return HttpResponse("You're changing question %s." % question_id)
+def change(request, course_id):
+    my_record = Course.objects.get(id=course_id)
+
+    if request.method =="POST":
+        form = Course_index(request.POST, instance=my_record)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('index')
+            
+    else:
+        form = Course_index(instance=my_record)
+        return render(request, 'add.html', {'form': form})
